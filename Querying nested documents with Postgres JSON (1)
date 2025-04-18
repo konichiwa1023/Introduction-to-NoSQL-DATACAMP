@@ -1,0 +1,10 @@
+# Build the query to select the statement field
+query = """
+    SELECT 
+        review -> 'statement' AS statement
+    FROM nested_reviews;
+"""
+
+# Execute the query, render results
+data = pd.read_sql(query, db_engine)
+print(data)
